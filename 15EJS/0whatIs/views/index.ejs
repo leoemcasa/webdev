@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <% if (today == 0 || today == 6) { %>
+    <% day=["weekend", "have fun"] %>
+    <% } else {  %>
+    <% day=["weekday", "work hard"] %>
+    <% } %>
+    <h1>Hey! It's <%= day[0] %>, it's time to <%= day[1] %></h1>
+    
+</body>
+</html>
