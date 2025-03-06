@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Taco Recipes</title>
+  <link rel="stylesheet" type="text/css" href="/styles/main.css">
+</head>
+
+<body>
+  <h1>Taco Town 🌮</h1>
+
+  <form action="/recipe" method="POST" class="buttons">
+    <button type="submit" value="chicken" name="choice">🍗</button>
+    <button type="submit" value="beef" name="choice">🥩</button>
+    <button type="submit" value="fish" name="choice">🐟</button>
+  </form>
+  <div id="recipeContainer" class="hidden">
+
+    <!-- If no recipe yet, show: -->
+    <% if (!locals.recipeJSON) { %>
+      <h2>Pick your favourite taco ingredient 👆</h2>
+    <!-- Else, show the recipe name e.g. <h2>Recipe name</h2>-->
+    <% } else { %>
+      <h2 id="recipeTitle">
+        <%= recipeJSON.name %>
+      </h2>
+  
+
+    <h3>Ingredients:</h3>
+    <ul id="ingredientsList">
+      <li><%= recipeJSON.ingredients.protein.name %>, <%= recipeJSON.ingredients.protein.preparation %></li>
+      <!-- <li>Protein name, protein preparation</li> -->
+      <li><%= recipeJSON.ingredients.salsa.name %>, <%= recipeJSON.ingredients.salsa.spiciness %></li>
+      <!-- <li>Salsa name</li> -->
+      <!-- <% for (let i = 0; i < recipeJSON.ingredients.toppings.length; i++) { %>
+        <li><%= recipeJSON.ingredients.toppings[i].name %>, <%= recipeJSON.ingredients.toppings[i].quantity %></li>
+        <% for (let j = 0; j < recipeJSON.ingredients.toppings[i].ingredients.length; j++) { %>
+          <li>  <%= recipeJSON.ingredients.toppings[i].ingredients[j] %></li>
+        <% } %>
+      <% } %> -->
+      <!-- <li>Topping name, topping quantity</li>      
+      <li>Ingredient name</li>
+      <li>Ingredient name</li>    -->       
+      <!-- <li>Every other topping</li> -->
+    </ul>
+
+    <% } %>
+
+  </div>
+</body>
+
+</html>
